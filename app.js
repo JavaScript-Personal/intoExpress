@@ -21,3 +21,14 @@ app.get("/ola/:cargo/:nome",function(req,res){
 app.listen(8081,function(){
     console.log("Servidor rodando na url http://localhost:8081")
 })
+
+const Sequelize =  require('sequelize')
+const sequelize = new Sequelize('teste','postgres','root',{
+    host: "localhost", dialect: 'postgres'
+})
+
+sequelize.authenticate().then(function(){
+    console.log("conctado com sucesso!!")
+}).catch(function(erro){
+    console.log("falha ao conectar: "+ erro)
+})
